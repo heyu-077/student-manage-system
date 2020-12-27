@@ -19,6 +19,7 @@ header{
     min-height: calc(100% - 70px);
     width: calc(100% - 200px);
     float: left;
+    position: relative;
 }
 .logo img{
     width: 30px;
@@ -53,6 +54,10 @@ header{
     color: #354457;
 }
 
+.student-list{
+    position: absolute;
+    width: 100%;
+}
 .student-add{
     display: none;
 }
@@ -98,9 +103,18 @@ header{
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0,0,0,0.5);
+    /* background-color: rgba(0,0,0,0.5); */
     display: none;
 } 
+.modal::after{
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+}
 .modal-content{
     width: 500px;
     height: 400px;
@@ -112,6 +126,7 @@ header{
     bottom: 0;
     margin: auto;
     padding: 20px;
+    z-index: 100;
 }
 .student-form{
     margin-top: 20px;
