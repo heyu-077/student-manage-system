@@ -1,7 +1,6 @@
 //用monk.js模拟数据
 
 const api = {
-
   //获取学生数据接口
   apiGetStudentData: function (data) {
     const result = [];
@@ -19,33 +18,44 @@ const api = {
         })
       );
     }
-    return {
-        status: 'success',
-        msg: '成功',
-        data:{
-            count: Mock.Random.integer(),
-            findByPage: result
-        }
-    };
+    const df = $.Deferred();
+    setTimeout(() => {
+      df.resolve({
+        status: "success",
+        msg: "成功",
+        data: {
+          count: Mock.Random.integer(0,200),
+          findByPage: result,
+        },
+      });
+    }, 300);
+    return df;
   },
 
   //更新学生数据接口
-  updateStudent: function(data){
-        console.log(data);
-        return {
-            status: 'success',
-            msg: '成功',
-            data: {}
-        }
+  updateStudent: function (data) {
+    console.log(data);
+    const df = $.Deferred();
+    setTimeout(() => {
+      df.resolve({
+        status: "success",
+        msg: "成功",
+        data: {},
+      });
+    }, 30);
+    return df;
   },
 
   //删除学生数据接口
-  removeStudent: function(sNo){
-    console.log(sNo);
-    return {
-        status: 'success',
-        msg: '成功',
-        data: {}
-    }
-  }
+  removeStudent: function (sNo) {
+    const df = $.Deferred();
+    setTimeout(() => {
+      df.resolve({
+        status: "success",
+        msg: "成功",
+        data: {},
+      });
+    }, 30);
+    return df;
+  },
 };
